@@ -3,7 +3,6 @@ from config import data_base
 
 
 def throw_error(error='undefined error'):
-    print()
     print(f"\033[31m{error}\033[0m")
 
 
