@@ -36,13 +36,12 @@ cls_str TEXT
 
 
 def throw_error(error='undefined error'):
-    print()
     print(f"\033[31m{error}\033[0m")
 
 
 while True:
     command = input()
-    if command[-1] == " ":
+    while len(command) >= 1 and command[-1] == " ":
         command = command[:-1]
 
     if command == "new stud":
@@ -56,6 +55,7 @@ while True:
             students.init_stud(name, surname, second_name, cls)
         except Exception as e:
             throw_error(str(e))
+            continue
 
     elif command == "del stud":
         print(
@@ -72,6 +72,7 @@ while True:
             students.del_stud(cls, name, surname, second_name, id_stud)
         except Exception as e:
             throw_error(str(e))
+            continue
     elif command == "new cls":
         print("give {number} {letter}")
         try:
@@ -80,6 +81,7 @@ while True:
             classes.init_cls(letter, number)
         except Exception as e:
             throw_error(str(e))
+            continue
     elif command == "del cls":
         print("give {number} {letter} {id}(or -1)")
         try:
@@ -89,18 +91,21 @@ while True:
             classes.del_cls(letter, number, cls_id)
         except Exception as e:
             throw_error(str(e))
+            continue
 
     elif command == "show stud":
         try:
             students.show_all_stud()
         except Exception as e:
             throw_error(str(e))
+            continue
 
     elif command == "show cls":
         try:
             classes.show_all_classes()
         except Exception as e:
             throw_error(str(e))
+            continue
 
     elif command == "help":
         print("new stud")
@@ -116,5 +121,8 @@ while True:
 
     elif command == "exit":
         break
+
+    else:
+        throw_error("wrong command")
 
 connection.close()
