@@ -1,0 +1,14 @@
+body {
+    background-color: #ffffff; /* Светло-серый фон для всей страницы */
+    font-family: 'Georgia', serif;
+}
+
+p {
+    line-height: 1.6; /* Межстрочный интервал */
+}
+
+#header {
+    background: linear-gradient(to right, blue, purple);
+    color: white;
+    padding: 20px;
+}
