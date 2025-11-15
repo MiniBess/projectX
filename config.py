@@ -1,1 +1,1 @@
-data_base = "db1.db"
+data_base = "db2.db"
